@@ -54,7 +54,7 @@ public class SectionService {
         }
 
         if (StringUtils.hasLength(searchCriteria.get("isActive"))) {
-            String activeStr = searchCriteria.get("isActive").toLowerCase();
+            String activeStr = searchCriteria.get("isActive").toLowerCase(Locale.ROOT);
             if ("true".equals(activeStr) || "false".equals(activeStr)) {
                 Boolean isActive = Boolean.valueOf(activeStr);
                 spec = spec.and(SectionSpecs.hasActiveStatus(isActive));

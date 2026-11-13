@@ -75,7 +75,7 @@ public class SectionSecurityService {
         boolean hasInstructorRole = this.userUtils.hasRole("ROLE_instructor");
         if (hasStudentRole) {
             Student student = this.studentRepository.findById(userIdFromJwt).orElse(null);
-            if (student == null) {
+            if (student == null) { // NOPMD - Explicit fail-closed authorization check is easier to audit.
                 return false;
             }
             // Check if the student's sectionId matches the sectionId from the request URI
