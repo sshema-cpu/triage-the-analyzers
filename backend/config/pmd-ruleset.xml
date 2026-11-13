@@ -13,5 +13,14 @@
          xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
     <description>PMD quickstart, with Project Pulse's decisions.</description>
     <rule ref="rulesets/java/quickstart.xml">
+        <!-- D2: Framework-managed domain classes use intentional
+             no-argument and explicit constructors. -->
+        <exclude name="UncommentedEmptyConstructor"/>
+        <exclude name="UnnecessaryConstructor"/>
+
+        <!-- D4: Parameterized logging avoids eager string formatting;
+             guards would add branches without meaningful benefit
+             for the reviewed logging statements. -->
+        <exclude name="GuardLogStatement"/>
     </rule>
 </ruleset>
